@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RefreshingRecipes.Views.RecipeListView"
+             Title="RecipeListView">
+    <VerticalStackLayout Margin="10" Spacing="10">
+        <Image WidthRequest="600"
+               HeightRequest="400"
+               Source="smoothie.png"
+               Aspect="AspectFill"/>
+
+        <Label Text="Raspberry smoothie"
+               FontSize="Medium"
+               HorizontalOptions="Center"
+               />
+
+        <Button Text="Share"
+                WidthRequest="400"
+                x:Name="ShareButton"/>
+    </VerticalStackLayout>
+</ContentPage>
