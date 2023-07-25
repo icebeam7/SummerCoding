@@ -168,6 +168,10 @@ Ensure that you have your machine setup to deploy and debug to the different pla
 
 Running the app will result in a view that displays information about a beverage:
 
+Android:
 ![App running on Android](/Art/18-AppRunning.png)
+
+Windows:
+![App running on Windows](/Art/19-AppRunningWindows.png)
 
 Congratulations! You have finished Part 1! Let's continue and learn about arranging UI elements in [Part 2](/Part2-UIDesign/README.md)
