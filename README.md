@@ -5,6 +5,7 @@ Join us on an exciting Summer Coding Adventure as we dive into the enchanting wo
 This workshop is available in the following languages:
 
 * English - default README files
+- [Spanish](./Translations/es/README.md)
 
 ## Agenda
 * [Part 1](/Part1-GettingStarted/README.md) - Getting Started
