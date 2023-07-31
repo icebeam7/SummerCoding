@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:RefreshingRecipes.Helpers"
+             x:Class="RefreshingRecipes.Views.RecipeListView"
+             BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Primary}}"
+             Title="RecipeListView">
+    <VerticalStackLayout Margin="10" Spacing="10">
+        <Frame Padding="0"
+               CornerRadius="18"
+               HasShadow="False"
+               IsClippedToBounds="True">
+            <Image WidthRequest="600"
+                   HeightRequest="400"
+                   Source="smoothie.png"
+                   Aspect="AspectFill"/>
+        </Frame>
+
+        <Label Text="Raspberry smoothie"
+               FontSize="Large"
+               HorizontalOptions="Start"
+               FontAttributes="Bold"
+               TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}"
+               />
+
+        <Button FontFamily="MaterialDesignIcons" 
+                Text="{x:Static helpers:IconFont.ShareVariant}"
+                FontSize="25"
+                WidthRequest="50"
+                HeightRequest="50"
+                CornerRadius="25"
+                TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
+                x:Name="ShareButton"/>
+    </VerticalStackLayout>
+</ContentPage>
