@@ -1,0 +1,25 @@
+Microsoft Windows [Version 10.0.22621.1848]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\System32>cd..
+
+C:\Windows>cd..
+
+C:\>cd repos\
+
+C:\Repos>cd summer
+
+C:\Repos\Summer>mkdir fonts
+
+C:\Repos\Summer>cd fonts
+
+C:\Repos\Summer\fonts>npm install @mdi/font
+
+added 1 package in 2s
+npm notice
+npm notice New minor version of npm available! 9.6.7 -> 9.8.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v9.8.1
+npm notice Run npm install -g npm@9.8.1 to update!
+npm notice
+
+C:\Repos\Summer\fonts>

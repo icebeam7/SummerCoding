@@ -2,20 +2,52 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RefreshingRecipes.Views.RecipeListView"
-             Title="RecipeListView">
+             Title="RecipeListView" 
+             BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Primary}}"
+             xmlns:helpers="clr-namespace:RefreshingRecipes.Helpers">
     <VerticalStackLayout Margin="10" Spacing="10">
-        <Image WidthRequest="600"
-               HeightRequest="400"
-               Source="smoothie.png"
-               Aspect="AspectFill"/>
+        <Frame 
+             Margin="5"
+            IsClippedToBounds="True"
+            HasShadow="True"
+            BorderColor="{AppThemeBinding Light={StaticResource TertiaryBrush}, Dark={StaticResource Cyan100Accent}}"
+            CornerRadius="18">
+            <Frame.Shadow>
+                <Shadow Brush="Black"
+                                                Offset="6,10"
+                                                Opacity="0.8    " />
+            </Frame.Shadow>
+            <VerticalStackLayout>
+            <Image WidthRequest="600"
+                   HeightRequest="400"
+                   Source="smoothie.png"
+                   Aspect="AspectFill"/>
+                <Frame Margin="20,-50,-35,-2"
+                       CornerRadius="15"
+                       WidthRequest="280"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray900}} "
+                       HorizontalOptions="End"
+                       VerticalOptions="End">  
+                    <Label Text="Raspberry smoothie"
+                           FontSize="Large"
+                           HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource TertiaryBrush}, Dark={StaticResource Cyan100Accent}}" />
+                </Frame>
+            </VerticalStackLayout>
+        </Frame>
+        
 
-        <Label Text="Raspberry smoothie"
-               FontSize="Medium"
-               HorizontalOptions="Center"
-               />
-
-        <Button Text="Share"
-                WidthRequest="400"
+        <Button FontFamily="MaterialDesignIcons"
+                Text="{x:Static helpers:IconFont.ShareVariant}"
+                FontSize="25"
+                WidthRequest="50"
+                HeightRequest="50"
+                CornerRadius="25"
+                BorderWidth="2"
+                BorderColor="{AppThemeBinding Light={StaticResource TertiaryBrush}, Dark={StaticResource Cyan100Accent}}"
+                TextColor="{AppThemeBinding Light={StaticResource TertiaryBrush}, Dark={StaticResource Cyan100Accent}}"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=Black}"
                 x:Name="ShareButton"/>
     </VerticalStackLayout>
 </ContentPage>
