@@ -74,6 +74,8 @@ Switch back to your app and...
 ### Add custom fonts
 Finally, let's add a popular set of icons into our app! 
 
+0. If you have installed Node.js, installed in your machine from [Node.Org/Download](https://nodejs.org/en/download) 
+
 1. Download the free and open-source [Material Design Icons](https://pictogrammers.com/library/mdi/) set by running the `npm install` command.
 
 ![Downloading Material Design Icons](/Art/25-DownloadMDIFont.png)
