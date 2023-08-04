@@ -135,3 +135,19 @@ Learn more about [Adding custom fonts in .NET MAUI](https://cedricgabrang.medium
 ![Icon Button](/Art/31-IconButton.png)
 
 Congratulations! You have finished Part 2! Let's continue and learn about the MVVM pattern in [Part 3](/Part3-MVVM/README.md).
+
+### Community Contributions - Improving the UI
+
+Thanks to [Bryan Oroxon](https://github.com/BryanOroxon/) for the following implementation.
+
+1. Add a new Color definition in `Resources/Styles/Colors.xaml`:
+
+```xaml
+    <Color x:Key="Blue500">#3b65ff</Color>
+```
+
+2. Take a look at the improved [`RecipeListView.xaml`](/Part3-MVVM/RefreshingRecipes/Views/RecipeListView.xaml), where `AppThemeBinding` is implemented for different controls. Moreover, the layout changes a bit to display the `Label` over the `Image`. 
+
+3. When you run the app, this is how it should look like (when Dark mode is enabled):
+
+![UI improved](/Art/32-ImprovingUI.png)
