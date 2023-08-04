@@ -11,18 +11,18 @@
                HasShadow="False"
                BorderColor="{AppThemeBinding Light={StaticResource Blue500}, Dark={StaticResource Cyan100Accent}}"
                IsClippedToBounds="True">
-            <!-- It is not possible to use SolidColorBrush, you must use Color X Key for the assigned colors to show property the Light and Dark Theme-->
+
             <Frame.Shadow>
                 <Shadow Brush="Black"
                         Offset="6,10"
-                        Opacity="0.9   " />
+                        Opacity="0.9" />
             </Frame.Shadow>
             <VerticalStackLayout>
                 <Image WidthRequest="600"
                    HeightRequest="400"
                    Source="smoothie.png"
                    Aspect="AspectFill"/>
-                <Frame Margin="20,-50,-35,-2"
+                <Frame Margin="20,-70,-35,-2"
                        CornerRadius="15"
                        WidthRequest="280"
                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray900}} "
@@ -32,9 +32,9 @@
                            FontSize="Large"
                            HorizontalOptions="Start"
                            FontAttributes="Bold"
-                           TextColor="{AppThemeBinding Light={StaticResource Blue500}, Dark={StaticResource Cyan100Accent}}" />
+                           TextColor="{AppThemeBinding Light={StaticResource Blue300Accent}, Dark={StaticResource Cyan100Accent}}" />
                 </Frame>
-                <!-- It is not possible to use SolidColorBrush, you must use Color X Key for the assigned colors to show property the Light and Dark Theme-->
+
             </VerticalStackLayout>
         </Frame>
         <Button FontFamily="MaterialDesignIcons"
@@ -48,6 +48,6 @@
                 TextColor="{AppThemeBinding Light={StaticResource Blue500}, Dark={StaticResource Cyan100Accent}}"
                 BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
                 x:Name="ShareButton"/>
-        <!-- It is not possible to use SolidColorBrush, you must use Color X Key for the assigned colors to show property the Light and Dark Theme-->
+
     </VerticalStackLayout>
 </ContentPage>
