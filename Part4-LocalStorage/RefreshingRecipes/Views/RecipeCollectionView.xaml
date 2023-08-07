@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RefreshingRecipes.Views.RecipeCollectionView"
+             xmlns:vm="clr-namespace:RefreshingRecipes.ViewModels"
+             xmlns:model="clr-namespace:RefreshingRecipes.Models"
+             x:DataType="vm:RecipeCollectionViewModel"
+             Title="{Binding Title}">
+    <Grid Margin="5"
+          RowDefinitions="*,Auto"
+          BackgroundColor="Transparent"
+          RowSpacing="0">
+
+        <CollectionView ItemsSource="{Binding Recipes}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedRecipe}"
+                        SelectionChangedCommand="{Binding GoToDetailsCommand}"
+                        BackgroundColor="Transparent">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Recipe">
+                    <HorizontalStackLayout Spacing="10">
+                        <Image WidthRequest="300"
+                               HeightRequest="200"
+                               Source="{Binding RecipePhotoUrl}"
+                               Aspect="AspectFill"/>
+
+                        <Label Text="{Binding RecipeName}"
+                               FontSize="Medium"
+                               VerticalOptions="Center"
+                               TextColor="Black"/>
+                    </HorizontalStackLayout>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <Button
+            Grid.Row="1"
+            Margin="8"
+            Command="{Binding GetRecipesCommand}"
+            Text="Get Recipes" />
+
+        <ActivityIndicator
+            Grid.RowSpan="2"
+            HorizontalOptions="FillAndExpand"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="CenterAndExpand" />
+
+    </Grid>
+
+
+</ContentPage>

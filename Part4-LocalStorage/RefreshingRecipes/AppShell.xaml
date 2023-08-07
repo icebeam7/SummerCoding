@@ -9,7 +9,7 @@
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate views:RecipeListView}"
+        ContentTemplate="{DataTemplate views:RecipeCollectionView}"
         Route="Recipes" />
 
 </Shell>

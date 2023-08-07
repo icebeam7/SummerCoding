@@ -2,9 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:helpers="clr-namespace:RefreshingRecipes.Helpers"
-             x:Class="RefreshingRecipes.Views.RecipeListView"
+             x:Class="RefreshingRecipes.Views.RecipeDetailView"
              BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Primary}}"
-             Title="RecipeListView">
+             xmlns:vm="clr-namespace:RefreshingRecipes.ViewModels"
+             xmlns:model="clr-namespace:RefreshingRecipes.Models"
+             x:DataType="vm:RecipeDetailViewModel"
+             Title="{Binding Recipe.RecipeName}">
     <VerticalStackLayout Margin="10" Spacing="10">
         <Frame Padding="0"
                CornerRadius="18"
@@ -20,7 +23,7 @@
             <VerticalStackLayout>
                 <Image WidthRequest="600"
                    HeightRequest="400"
-                   Source="smoothie.png"
+                   Source="{Binding Recipe.RecipePhotoUrl}"
                    Aspect="AspectFill"/>
                 <Frame Margin="20,-70,-35,-2"
                        CornerRadius="15"
@@ -28,7 +31,7 @@
                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray900}} "
                        HorizontalOptions="End"
                        VerticalOptions="End">
-                    <Label Text="Raspberry smoothie"
+                    <Label Text="{Binding Recipe.RecipeName}"
                            FontSize="Large"
                            HorizontalOptions="Start"
                            FontAttributes="Bold"
