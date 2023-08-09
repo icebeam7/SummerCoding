@@ -5,6 +5,7 @@
              xmlns:vm="clr-namespace:RefreshingRecipes.ViewModels"
              xmlns:model="clr-namespace:RefreshingRecipes.Models"
              x:DataType="vm:RecipeCollectionViewModel"
+             BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Primary}}"
              Title="{Binding Title}">
     <Grid Margin="5"
           RowDefinitions="*,Auto"
@@ -19,24 +20,55 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Recipe">
-                    <HorizontalStackLayout Spacing="10">
-                        <Image WidthRequest="300"
-                               HeightRequest="200"
-                               Source="{Binding RecipePhotoUrl}"
-                               Aspect="AspectFill"/>
-
-                        <Label Text="{Binding RecipeName}"
-                               FontSize="Medium"
-                               VerticalOptions="Center"
-                               TextColor="Black"/>
-                    </HorizontalStackLayout>
-
+                    <Grid >
+                        <Border BackgroundColor="#311B45"
+                                Stroke="#6E557C"
+                                StrokeShape="RoundRectangle 30,30,30,30"
+                                StrokeThickness="2" 
+                                WidthRequest="350"
+                                HeightRequest="200" >
+                            <Grid RowDefinitions=".8*,.2*">
+                                <Image Aspect="AspectFill" Source="{Binding RecipePhotoUrl}" Grid.RowSpan="2" />
+                                <RoundRectangle Grid.RowSpan="2" 
+                                                CornerRadius="5"
+                                                HeightRequest="300"
+                                                WidthRequest="350"
+                                                Opacity=".8" >
+                                    <RoundRectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0,1" >
+                                            <GradientStop Offset="0" Color="Transparent" />
+                                            <GradientStop Offset="1" Color="Black" />
+                                        </LinearGradientBrush>
+                                    </RoundRectangle.Fill>
+                                </RoundRectangle>
+                                <VerticalStackLayout Grid.Row="1"   >
+                                    <Label Text="{Binding RecipeName}"
+                                           Margin="0,0,20,20"
+                                           FontSize="Large"
+                                           HorizontalOptions="End"
+                                           TextColor="{AppThemeBinding Light={StaticResource Blue500}, Dark={StaticResource Cyan100Accent}}"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                            <Border.Shadow>
+                                <Shadow 
+                                    Brush="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"
+                                    Opacity=".9"
+                                    Radius="500"
+                                    Offset="1,1" />
+                            </Border.Shadow>
+                        </Border>
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-
         </CollectionView>
 
         <Button
+            FontSize="20"
+            CornerRadius="25"
+            BorderWidth="2"
+            BorderColor="{AppThemeBinding Light={StaticResource Blue500}, Dark={StaticResource Cyan100Accent}}"
+            TextColor="{AppThemeBinding Light={StaticResource Blue500}, Dark={StaticResource Cyan100Accent}}"
+            BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
             Grid.Row="1"
             Margin="8"
             Command="{Binding GetRecipesCommand}"

@@ -7,7 +7,7 @@
              xmlns:vm="clr-namespace:RefreshingRecipes.ViewModels"
              xmlns:model="clr-namespace:RefreshingRecipes.Models"
              x:DataType="vm:RecipeDetailViewModel"
-             Title="{Binding Recipe.RecipeName}">
+             Title="{Binding Recipe.RecipeName  }" >
     <VerticalStackLayout Margin="10" Spacing="10">
         <Frame Padding="0"
                CornerRadius="18"
