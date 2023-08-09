@@ -131,7 +131,7 @@ Obtén más información sobre [Agregando fuentes personalizadas en .NET MAUI](h
 
 ![Botón con ícono](/Art/31-IconButton.png)
 
-¡Felicidades! ¡Has terminado la Parte 2! Aprendamos ahora sobre el patrón MVVM en la [Parte 3](/Part3-MVVM/README.md).
+¡Felicidades! ¡Has terminado la Parte 2! Aprendamos ahora sobre el patrón MVVM en la [Parte 3](/Part3-MVVM/README-es.md).
 
 ### Contribuciones de la comunidad: mejorando la interfaz de usuario
 
