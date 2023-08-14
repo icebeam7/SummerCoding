@@ -452,3 +452,45 @@ Cuando seleccionas uno, la aplicación navega a una segunda vista con los detall
 ![Detalles de la receta](/Art/44-RecipeDetail.png)
 
 ¡Felicidades! ¡Has terminado la Parte 3! Continuemos y aprendamos sobre el almacenamiento local en la [Parte 4](/Part4-LocalStorage/README-es.md).
+
+### Contribuciones de la comunidad: mejorando la interfaz de usuario
+
+Gracias a [Bryan Oroxon](https://github.com/BryanOroxon/) por la siguiente implementación.
+
+1. Agrega dos nuevas definiciones de Color en `Resources/Styles/Colors.xaml`:
+
+```xaml
+    <Color x:Key="Violet900">#4b05ad</Color>
+    <Color x:Key="BlueGem900">#2b0b98</Color>
+```
+
+2. Modifica el estilo del control `ActivityIndicator` en `Resources/Styles/Styles.xaml`, incorporando el tema claro y oscuro:
+
+```xaml
+    <Style TargetType="ActivityIndicator">
+        <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Blue300Accent}, Dark={StaticResource Cyan100Accent}}" />
+    </Style>
+```
+
+También modifica el estilo de `Shell`:
+
+```xaml
+    <Style TargetType="Shell" ApplyToDerivedTypes="True">
+        <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Light={StaticResource BlueGem900}, Dark={StaticResource BlueGem900}}" />
+        <Setter Property="Shell.ForegroundColor" Value="{OnPlatform WinUI={StaticResource Primary}, Default={StaticResource White}}" />
+        <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Light={StaticResource Blue300Accent}, Dark={StaticResource Cyan100Accent}}" />
+        <Setter Property="Shell.DisabledColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray950}}" />
+        <Setter Property="Shell.UnselectedColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray200}}" />
+        <Setter Property="Shell.NavBarHasShadow" Value="False" />
+        <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray600}}" />
+        <Setter Property="Shell.TabBarForegroundColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
+        <Setter Property="Shell.TabBarTitleColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
+        <Setter Property="Shell.TabBarUnselectedColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray200}}" />
+    </Style>
+```
+
+3. Echa un vistazo a la nueva y mejorada versión de código de [`RecipeCollectionView.xaml`](/Part4-MVVM/RefreshingRecipes/Views/RecipeCollectionView.xaml), donde se implementa `AppThemeBinding` para el `DataTemplate` del `CollectionView` y el botón.
+
+4. A continuación se muestra la interfaz mejorada:
+
+![Interfaz de usuario mejorada](/Art/45-ImprovedRecipeCollection.png)
