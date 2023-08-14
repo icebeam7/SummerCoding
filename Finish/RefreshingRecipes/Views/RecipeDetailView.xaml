@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:RefreshingRecipes.Helpers"
+             x:Class="RefreshingRecipes.Views.RecipeDetailView"
+             BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Primary}}"
+             xmlns:vm="clr-namespace:RefreshingRecipes.ViewModels"
+             xmlns:model="clr-namespace:RefreshingRecipes.Models"
+             x:DataType="vm:RecipeDetailViewModel"
+             Title="{Binding Recipe.RecipeName  }" >
+    <VerticalStackLayout Margin="10" Spacing="10">
+        <Frame Padding="0"
+               CornerRadius="18"
+               HasShadow="False"
+               BorderColor="{AppThemeBinding Light={StaticResource Blue500}, Dark={StaticResource Cyan100Accent}}"
+               IsClippedToBounds="True">
+
+            <Frame.Shadow>
+                <Shadow Brush="Black"
+                        Offset="6,10"
+                        Opacity="0.9" />
+            </Frame.Shadow>
+            <VerticalStackLayout>
+                <Image WidthRequest="600"
+                   HeightRequest="400"
+                   Source="{Binding Recipe.RecipePhotoUrl}"
+                   Aspect="AspectFill"/>
+                <Frame Margin="20,-70,-35,-2"
+                       CornerRadius="15"
+                       WidthRequest="280"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource Gray600}, Dark={StaticResource Gray900}} "
+                       HorizontalOptions="End"
+                       VerticalOptions="End">
+                    <Label Text="{Binding Recipe.RecipeName}"
+                           FontSize="Large"
+                           HorizontalOptions="Start"
+                           FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light={StaticResource Blue300Accent}, Dark={StaticResource Cyan100Accent}}" />
+                </Frame>
+
+            </VerticalStackLayout>
+        </Frame>
+        <Button FontFamily="MaterialDesignIcons"
+                Text="{x:Static helpers:IconFont.ShareVariant}"
+                FontSize="25"
+                WidthRequest="50"
+                HeightRequest="50"
+                CornerRadius="25"
+                BorderWidth="2"
+                BorderColor="{AppThemeBinding Light={StaticResource Blue500}, Dark={StaticResource Cyan100Accent}}" 
+                TextColor="{AppThemeBinding Light={StaticResource Blue500}, Dark={StaticResource Cyan100Accent}}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
+                x:Name="ShareButton"/>
+
+    </VerticalStackLayout>
+</ContentPage>
