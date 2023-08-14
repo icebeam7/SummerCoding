@@ -324,7 +324,7 @@ New data has been added to the app! Click again on **Get recipes** button and yo
 
 ![Local data](/Art/55-GetDataFromLocalDB.png)
 
-### Add SQLite (and related) NuGet packages 
+### Add user preferences 
 We are now adding a preference that allows the user to decide where they want to get the data from (either from an Internet service or a local database).
 
 1. Add a new public constant as part of the `Constants` class, which represents the key (basically, the name) of the local preference:
@@ -518,11 +518,11 @@ public async Task<IEnumerable<Recipe>> GetRecipes()
 * Click again on the hamburger menu and choose **Recipes**. Then, click on the **Get Recipes** button, and you will see 5 recipes:
 ![Getting local recipes](/Art/61-LocalRecipes.png)
 
-** Go back to the **Settings** view and turn on the online mode this time. Save the settings:
+* Go back to the **Settings** view and turn on the online mode this time. Save the settings:
 
 ![Saving new settings](/Art/62-NewSettings.png)
 
-** Finally, go back to the **Recipes** page, and click on the  **Get Recipes** button. This time, you should obtain 6 recipes:
+* Finally, go back to the **Recipes** page, and click on the  **Get Recipes** button. This time, you should obtain 6 recipes:
 
 ![Getting internet recipes](/Art/63-InternetRecipes)
 
