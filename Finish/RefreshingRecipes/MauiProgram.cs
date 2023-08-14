@@ -20,13 +20,16 @@ public static class MauiProgram
 			});
 
         builder.Services.AddSingleton<IRecipeService, RecipeService>();
+        builder.Services.AddSingleton<ILocalDbService, LocalDbService>();
 
-		builder.Services.AddSingleton<RecipeCollectionViewModel>();
+        builder.Services.AddSingleton<RecipeCollectionViewModel>();
 		builder.Services.AddTransient<RecipeDetailViewModel>();
 
         builder.Services.AddTransient<RecipeCollectionView>();
         builder.Services.AddTransient<RecipeDetailView>();
 
+        builder.Services.AddTransient<SettingsViewModel>();
+        builder.Services.AddTransient<SettingsView>();
 #if DEBUG
         builder.Logging.AddDebug();
 #endif

@@ -15,7 +15,7 @@ namespace RefreshingRecipes.Services
 
         public async Task<IEnumerable<Recipe>> GetRecipes()
         {
-            var response = await httpClient.GetAsync("https://gist.githubusercontent.com/icebeam7/a6c1c7523e67272e294204aff0b115cc/raw/84d3d9c1b25d924630b15d901fa38dbbd13f20fc/recipes.json");
+            var response = await httpClient.GetAsync("https://gist.githubusercontent.com/icebeam7/a6c1c7523e67272e294204aff0b115cc/raw/938694ed82fa34384c9704f6000fa0307ca72c06/recipes.json");
 
             if (response.IsSuccessStatusCode)
                 return await response.Content.ReadFromJsonAsync<IEnumerable<Recipe>>();

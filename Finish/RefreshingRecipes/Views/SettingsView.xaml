@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RefreshingRecipes.Views.SettingsView"
+             xmlns:vm="clr-namespace:RefreshingRecipes.ViewModels"
+             xmlns:model="clr-namespace:RefreshingRecipes.Models"
+             x:DataType="vm:SettingsViewModel"
+             Title="{Binding Title}">
+    <Grid RowSpacing="10" 
+          RowDefinitions="Auto,Auto" 
+          ColumnDefinitions="*,*">
+
+        <Label Text="Online mode?"
+               VerticalOptions="Center"/>
+
+        <Switch Grid.Column="1" 
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                IsToggled="{Binding OnlineMode}" />
+
+        <Button Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Text="Save"
+                Command="{Binding SaveSettingsCommand}"/>
+    </Grid>
+</ContentPage>

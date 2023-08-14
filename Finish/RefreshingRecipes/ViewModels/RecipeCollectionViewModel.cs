@@ -3,6 +3,7 @@
 using RefreshingRecipes.Views;
 using RefreshingRecipes.Models;
 using RefreshingRecipes.Services;
+using RefreshingRecipes.Helpers;
 
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -14,14 +15,18 @@ namespace RefreshingRecipes.ViewModels
         public ObservableCollection<Recipe> Recipes { get; } = new();
 
         IRecipeService recipeService;
+        ILocalDbService localDbService;
+        bool onlineMode;
 
         [ObservableProperty]
         Recipe selectedRecipe;
 
-        public RecipeCollectionViewModel(IRecipeService recipeService)
+        public RecipeCollectionViewModel(IRecipeService recipeService, ILocalDbService localDbService)
         {
             Title = "Recipe List";
             this.recipeService = recipeService;
+            this.localDbService = localDbService;
+            onlineMode = Preferences.Get(Constants.OnlineModeKey, true);
         }
 
         [RelayCommand]
@@ -33,7 +38,13 @@ namespace RefreshingRecipes.ViewModels
             try
             {
                 IsBusy = true;
-                var recipes = (await recipeService.GetRecipes()).ToList();
+
+                var recipes = onlineMode
+                    ? (await recipeService.GetRecipes()).ToList()
+                    : await localDbService.GetItems<Recipe>();
+
+                //var recipes = (await recipeService.GetRecipes()).ToList();
+                //var recipes = await localDbService.GetItems<Recipe>();
 
                 if (Recipes.Count != 0)
                     Recipes.Clear();
@@ -63,6 +74,40 @@ namespace RefreshingRecipes.ViewModels
             };
 
             await Shell.Current.GoToAsync(nameof(RecipeDetailView), true, data);
+        }
+
+        [RelayCommand]
+        async Task AddLocalRecipesAsync()
+        {
+            if (IsBusy)
+                return;
+
+            try
+            {
+                IsBusy = true;
+
+                if (await localDbService.CountItems<Recipe>() == 0)
+                {
+                    var recipes = (await recipeService.GetRecipes()).ToList();
+
+                    var result = await localDbService.AddItems<Recipe>(recipes);
+
+                    await Shell.Current.DisplayAlert(
+                        "Result",
+                        result ? "The local database now contains new information!" : "There was an error",
+                        "OK");
+                }
+                else
+                    await Shell.Current.DisplayAlert("Error!", "The local database already contains information", "OK");
+            }
+            catch (Exception ex)
+            {
+                await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

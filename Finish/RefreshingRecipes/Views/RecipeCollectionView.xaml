@@ -8,7 +8,7 @@
              BackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Primary}}"
              Title="{Binding Title}">
     <Grid Margin="5"
-          RowDefinitions="*,Auto"
+          RowDefinitions="*,Auto,Auto"
           BackgroundColor="Transparent"
           RowSpacing="0">
 
@@ -74,8 +74,20 @@
             Command="{Binding GetRecipesCommand}"
             Text="Get Recipes" />
 
+        <Button
+            FontSize="20"
+            CornerRadius="25"
+            BorderWidth="2"
+            BorderColor="{AppThemeBinding Light={StaticResource Blue500}, Dark={StaticResource Cyan100Accent}}"
+            TextColor="{AppThemeBinding Light={StaticResource Blue500}, Dark={StaticResource Cyan100Accent}}"
+            BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}"
+            Grid.Row="2"
+            Margin="8"
+            Command="{Binding AddLocalRecipesCommand}"
+            Text="Add Local Recipes" />
+
         <ActivityIndicator
-            Grid.RowSpan="2"
+            Grid.RowSpan="3"
             HorizontalOptions="FillAndExpand"
             IsRunning="{Binding IsBusy}"
             IsVisible="{Binding IsBusy}"

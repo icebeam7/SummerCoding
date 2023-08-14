@@ -5,11 +5,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:RefreshingRecipes"
     xmlns:views="clr-namespace:RefreshingRecipes.Views"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate views:RecipeCollectionView}"
         Route="Recipes" />
 
+    <ShellContent
+        Title="Settings"
+        ContentTemplate="{DataTemplate views:SettingsView}"
+        Route="Settings" />
 </Shell>
